@@ -29,7 +29,8 @@ export class HeaderComponent implements OnInit {
       {label: 'Missions', icon: 'fa-star', routerLink: ['mission']},
       {label: 'Mission Templates', icon: 'fa-star-o', routerLink: ['mission-template']},
       {label: 'Maps', icon: 'fa-map', routerLink: ['map']},
-      {label: 'Resources', icon: 'fa-car', routerLink: ['resource']}
+      {label: 'Resources', icon: 'fa-car', routerLink: ['resource']},
+      {label: 'Activities', icon: 'fa-cogs', routerLink: ['activity']}
     ];
 
     this.router.events
