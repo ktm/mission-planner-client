@@ -5,11 +5,15 @@
 <button type="button" pButton label="Zoom In" icon="fa-search-plus" (click)="zoomIn(gmap.getMap())" style="margin-top:10px"></button>
 <button type="button" pButton label="Zoom Out" icon="fa-search-minus" (click)="zoomOut(gmap.getMap())" style="margin-top:10px"></button>
 
-<p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Location">
+<p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Map Entry" height="350">
   <div class="ui-grid ui-grid-pad ui-fluid" *ngIf="selectedPosition">
     <div class="ui-grid-row">
       <div class="ui-grid-col-2"><label for="title">Label</label></div>
       <div class="ui-grid-col-10"><input type="text" pInputText id="title" [(ngModel)]="markerTitle"></div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2"><label for="entrytype">Type</label></div>
+      <div class="ui-grid-col-10"><p-dropdown id="entrytype" [options]="entryTypes" [(ngModel)]="selectedEntryType" [style]="{'width':'175px'}"></p-dropdown></div>
     </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-2"><label for="lat">Lat</label></div>
@@ -18,10 +22,6 @@
     <div class="ui-grid-row">
       <div class="ui-grid-col-2"><label for="lng">Lng</label></div>
       <div class="ui-grid-col-10"><input id="lng" type="text" readonly pInputText [ngModel]="selectedPosition.lng()"></div>
-    </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-2"><label for="drg">Drag</label></div>
-      <div class="ui-grid-col-10"><p-checkbox id="drg" [(ngModel)]="draggable" binary="true"></p-checkbox></div>
     </div>
   </div>
   <footer>

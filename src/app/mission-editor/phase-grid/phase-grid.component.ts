@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MapEntry} from "../service/map/map";
-import {MapService} from "../service/map/map.service";
+import {MapEntry} from "../../service/map/map";
+import {MapService} from "../../service/map/map.service";
 
 @Component({
   selector: 'app-phase-grid',

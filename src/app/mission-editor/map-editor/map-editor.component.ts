@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from "primeng/components/common/api";
+import {SelectItem} from 'primeng/primeng';
 
 declare var google: any;
 
@@ -9,6 +10,9 @@ declare var google: any;
   styleUrls: ['./map-editor.component.css']
 })
 export class MapEditorComponent implements OnInit {
+
+  entryTypes: SelectItem[];
+
   options: any;
 
   overlays: any[];
@@ -18,6 +22,7 @@ export class MapEditorComponent implements OnInit {
   markerTitle: string;
 
   selectedPosition: any;
+  selectedEntryType: string;
 
   infoWindow: any;
 
@@ -29,7 +34,14 @@ export class MapEditorComponent implements OnInit {
   lng: number =  -84.475523;
   zoom:number = 17;
 
-  constructor() { }
+  constructor() {
+    this.entryTypes = [];
+    this.entryTypes.push({label:'Waypoint', value:{id:1, name: 'Waypoint', code: 'W'}});
+    this.entryTypes.push({label:'Loiter', value:{id:2, name: 'Loiter', code: 'L'}});
+    this.entryTypes.push({label:'Boundary', value:{id:3, name: 'Boundary', code: 'B'}});
+    this.entryTypes.push({label:'Destination', value:{id:4, name: 'Destination', code: 'D'}});
+    this.selectedEntryType = "Waypoint";
+  }
 
   ngOnInit() {
     this.options = {
@@ -66,7 +78,6 @@ export class MapEditorComponent implements OnInit {
   }
 
   addMarker() {
-
     this.overlays.push(new google.maps.Marker({position:{lat: this.selectedPosition.lat(), lng: this.selectedPosition.lng()}, title:this.markerTitle, draggable: this.draggable}));
     this.markerTitle = null;
     this.dialogVisible = false;
