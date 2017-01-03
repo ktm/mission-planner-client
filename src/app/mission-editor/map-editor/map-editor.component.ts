@@ -30,11 +30,16 @@ export class MapEditorComponent implements OnInit {
 
   msgs: Message[] = [];
 
+
   lat: number = 34.083204;
   lng: number =  -84.475523;
+
   zoom:number = 17;
 
   constructor() {
+    this.lat = 53.268064;
+    this.lng = -9.049224;
+
     this.entryTypes = [];
     this.entryTypes.push({label:'Waypoint', value:{id:1, name: 'Waypoint', code: 'W'}});
     this.entryTypes.push({label:'Loiter', value:{id:2, name: 'Loiter', code: 'L'}});
