@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {MapEntry} from "./map";
+import {MapEntry} from './map';
 
 import 'rxjs/add/operator/toPromise';
-import {MAPENTRIES} from "./mock-map";
+import {MAPENTRIES} from './mock-map';
 
 @Injectable()
 export class MapService {
-  constructor(private http: Http) {}
+  constructor() {}
 
 
   /*  getMap(id:number): Promise<MapEntry[]> {
@@ -18,13 +17,8 @@ export class MapService {
     }
     */
 
-  getMap(id:number): Promise<MapEntry[]> {
+  getMap(id: number): Promise<MapEntry[]> {
     return Promise.resolve(MAPENTRIES);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
   }
 }
 

@@ -1,8 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 
-import {MenuItem} from "primeng/components/common/api";
-import {Router, NavigationStart, NavigationEnd, ActivatedRoute} from "@angular/router";
-import {ContextService} from "../service/ContextService";
+import {MenuItem} from 'primeng/components/common/api';
+import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
+import {ContextService} from '../service/ContextService';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private contextService: ContextService) {
+              public contextService: ContextService) {
   }
 
 
@@ -37,7 +37,9 @@ export class HeaderComponent implements OnInit {
       .filter(event => event instanceof NavigationEnd)
       .map(() => this.activatedRoute)
       .map(route => {
-        while (route.firstChild) route = route.firstChild;
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
         return route;
       })
       .filter(route => route.outlet === 'primary')

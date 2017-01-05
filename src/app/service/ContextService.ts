@@ -1,17 +1,16 @@
-import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
+import {getDOM} from '@angular/platform-browser/src/dom/dom_adapter';
 /**
  * Created by ktm on 1/1/17.
  */
-//import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
 
 export class ContextService {
 
-  constructor(){}
+  constructor() {}
   /**
    * Get the title of the current HTML document.
    * @returns {string}
    */
-  getTitle(): string {
+  public getTitle(): string {
     return getDOM().getTitle();
   }
 
@@ -19,7 +18,7 @@ export class ContextService {
    * Set the title of the current HTML document.
    * @param newTitle
    */
-  setTitle(newTitle: string) {
+  public setTitle(newTitle: string) {
     getDOM().setTitle(newTitle);
   }
 }
