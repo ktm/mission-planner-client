@@ -32,6 +32,7 @@ import {MapComponent} from './map/map.component';
 import {ResourceComponent} from './resource/resource.component';
 import {ContextService} from './service/ContextService';
 import {ActivityComponent} from './activity/activity.component';
+import {BPMNComponent} from "./bpmn/bpmn.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, data: {title: 'Home' } },
@@ -40,13 +41,14 @@ const appRoutes: Routes = [
   { path: 'map', component: MapComponent, data: {title: 'Maps' } },
   { path: 'resource', component: ResourceComponent, data: {title: 'Resources' } },
   { path: 'activity', component: ActivityComponent, data: {title: 'Activities' } },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+//  { path: '',   redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [
     ActivityComponent,
     AppComponent,
+    BPMNComponent,
     HeaderComponent,
     HomeComponent,
     MapComponent,
