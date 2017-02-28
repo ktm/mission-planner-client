@@ -2,10 +2,11 @@ import {Component, OnInit, Input} from '@angular/core';
 
 import {MenuItem} from 'primeng/components/common/api';
 import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
-import {ContextService} from '../service/ContextService';
+import {ContextService} from '../service/context.service';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import {MetaStuff} from "../service/MetaStuff";
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,11 @@ import 'rxjs/add/operator/mergeMap';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  searchtext: string;
+  searchitems: MetaStuff[];
+
+  selectedItem:MetaStuff;
+
   @Input() contextName: string;
 
   items: MenuItem[];
@@ -24,6 +30,17 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
+    this.searchtext = "x";
+
+    this.searchitems = [
+      {id: '1', label: 'Even', tag: 'even'},
+      {id: '21', label: 'Even', tag: 'even'},
+      {id: '13', label: 'Odd', tag: 'odd'},
+      {id: '31', label: 'Odd', tag: 'odd'},
+      {id: '5', label: 'Even', tag: 'even'},
+      {id: '7', label: 'Even', tag: 'even'}
+    ];
+
     this.items = [
       {label: 'Home', icon: 'fa-home', routerLink: ['home']},
       {label: 'Missions', icon: 'fa-star', routerLink: ['mission']},
@@ -45,5 +62,9 @@ export class HeaderComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => this.contextService.setTitle(event['title']));
+  }
+
+  toggleFilter() {
+
   }
 }

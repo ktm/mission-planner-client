@@ -4,11 +4,11 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve",
+    "start": "webpack-dev-server",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "test": "karma start ./karma.conf.js",
+    "build": "webpack",
+    "e2e": "protractor ./protractor.conf.js"
   },
   "private": true,
   "dependencies": {
@@ -36,17 +36,17 @@
     "lodash": "^3.0.1",
     "min-dom": "^0.2.0",
     "object-refs": "^0.1.1",
-    "primeng": "^1.1.2",
+    "primeng": "^1.1.4",
     "rxjs": "5.0.2",
     "tiny-svg": "^0.1.1",
     "ts-helpers": "^1.1.2",
-    "zone.js": "^0.7.4"
+    "zone.js": "^0.7.7"
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.4.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
-    "angular-cli": "^1.0.0-beta.24",
+    "@angular/cli": "^1.0.0-beta.32",
     "codelyzer": "~2.0.0-beta.2",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
@@ -60,6 +60,21 @@
     "ts-node": "1.2.1",
     "tslint": "4.2.0",
     "typescript": "~2.0.3",
-    "webdriver-manager": "10.2.5"
+    "webdriver-manager": "10.2.5",
+    "webpack-dev-server": "~2.3.0",
+    "css-loader": "^0.26.1",
+    "exports-loader": "^0.6.3",
+    "file-loader": "^0.10.0",
+    "json-loader": "^0.5.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "less-loader": "^2.2.3",
+    "postcss-loader": "^0.13.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.1.1",
+    "script-loader": "^0.7.0",
+    "source-map-loader": "^0.1.5",
+    "istanbul-instrumenter-loader": "^2.0.0",
+    "stylus-loader": "^2.4.0",
+    "url-loader": "^0.5.7"
   }
 }

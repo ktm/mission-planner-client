@@ -30,7 +30,7 @@ import {HomeComponent} from './home/home.component';
 import {MissionTemplateComponent} from './mission-template/mission-template.component';
 import {MapComponent} from './map/map.component';
 import {ResourceComponent} from './resource/resource.component';
-import {ContextService} from './service/ContextService';
+import {ContextService} from './service/context.service';
 import {ActivityComponent} from './activity/activity.component';
 import {BPMNComponent} from "./bpmn/bpmn.component";
 

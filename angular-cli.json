@@ -1,7 +1,8 @@
 {
   "project": {
     "version": "1.0.0-beta.21",
-    "name": "mission-planner"
+    "name": "mission-planner",
+    "ejected": true
   },
   "apps": [
     {
@@ -16,25 +17,30 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
       "prefix": "app",
-      "mobile": false,
       "styles": [
         "styles.css",
         "../node_modules/primeng/resources/themes/omega/theme.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/primeng/resources/primeng.css",
+        "app.less",
+        "../node_modules/bpmn-js/assets/bpmn-font/css/bpmn.css",
         "../node_modules/bpmn-js/assets/bpmn-font/css/bpmn-embedded.css",
+        "../node_modules/bpmn-js-properties-panel/styles/properties.less",
         "../node_modules/diagram-js/assets/diagram-js.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
   ],
-  "addons": [],
-  "packages": [],
+  "addons": [
+  ],
+  "packages": [
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -46,19 +52,6 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
-    "spec": {
-      "class": false,
-      "component": true,
-      "directive": true,
-      "module": false,
-      "pipe": true,
-      "service": true
-    }
+    "styleExt": "css"
   }
 }

@@ -3,16 +3,30 @@
 
 <!--    (click)="XitemClick($event, item)" -->
       <p-menu #menu popup="popup" [model]="items"></p-menu>
-      <button type="button" pButton icon="fa fa-bars" (click)="menu.toggle($event)"></button>
+    <button type="button" pButton icon="fa fa-bars" (click)="menu.toggle($event)"></button>
+    <button pButton type="button" icon="fa-search" (click)="op.toggle($event)"></button>
     {{contextService.getTitle()}}
   </div>
 
-  <div class="ui-toolbar-group-right">
-    <button pButton type="button" icon="fa-search"></button>
-    <button pButton type="button" icon="fa-plus"></button>
-    <i class="fa fa-bars"></i>
-    <button pButton type="button" icon="fa-refresh"></button>
-    <button pButton type="button" icon="fa-trash"></button>
+  <!--
+<div class="ui-toolbar-group-right">
+  <button pButton type="button" icon="fa-plus"></button>
+  <i class="fa fa-bars"></i>
+  <button pButton type="button" icon="fa-refresh"></button>
+  <button pButton type="button" icon="fa-trash"></button>
   </div>
-</p-toolbar>
+  -->
 
+  <p-overlayPanel #op [showCloseIcon]="true" [dismissable]="true">
+    <input type="text" pInputText [(ngModel)]="searchtext"/>
+    <button type="button" pButton icon="fa-filter disabled" (click)="toggleFilter()"></button>
+
+    <p-dataTable [value]="searchitems" [style]="{'width':'300px'}" selectionMode="single" [(selection)]="selectedItem">
+      <p-column field="id" header="ID"></p-column>
+      <p-column field="label" header="Label" [sortable]="true"></p-column>
+      <p-column field="tag" header="Tags" [sortable]="true"></p-column>
+    </p-dataTable>
+
+  </p-overlayPanel>
+
+</p-toolbar>
