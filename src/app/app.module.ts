@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import {AppComponent } from './app-component';
 
-import {AgmCoreModule } from 'angular2-google-maps/core';
-
 import {CheckboxModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextarea';
@@ -32,7 +30,6 @@ import {MapComponent} from './map/map.component';
 import {ResourceComponent} from './resource/resource.component';
 import {ContextService} from './service/context.service';
 import {ActivityComponent} from './activity/activity.component';
-import {BPMNComponent} from "./bpmn/bpmn.component";
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, data: {title: 'Home' } },
@@ -48,7 +45,6 @@ const appRoutes: Routes = [
   declarations: [
     ActivityComponent,
     AppComponent,
-    BPMNComponent,
     HeaderComponent,
     HomeComponent,
     MapComponent,
@@ -74,9 +70,6 @@ const appRoutes: Routes = [
     PanelModule,
     FormsModule,
     HttpModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCLyQi7QyL7kkKtwbt_hza514LkvHZUaTQ'
-    }),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ContextService],

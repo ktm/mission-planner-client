@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, NavigationEnd} from "@angular/router";
-declare let ga:Function;
+import {Router, NavigationEnd} from '@angular/router';
+declare let ga: Function;
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .filter(event => event instanceof NavigationEnd).subscribe(
-      (event:NavigationEnd) =>  ga('send', 'pageview', event.urlAfterRedirects));
+      (event: NavigationEnd) =>  ga('send', 'pageview', event.urlAfterRedirects));
   }
 
 }

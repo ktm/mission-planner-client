@@ -11,7 +11,7 @@ export class ContextService {
    * @returns {string}
    */
   public getTitle(): string {
-    return getDOM().getTitle();
+    return 'title';
   }
 
   /**
@@ -19,6 +19,5 @@ export class ContextService {
    * @param newTitle
    */
   public setTitle(newTitle: string) {
-    getDOM().setTitle(newTitle);
-  }
+   }
 }
